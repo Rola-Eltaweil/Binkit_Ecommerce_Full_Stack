@@ -31,11 +31,16 @@ app.post(
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(helmet());
+const allowedOrigins =
+  process.env.NODE_ENV === "production"
+    ? [process.env.FRONTED_URL_ONE, process.env.FRONTED_URL_TWO]
+    : "*";
+
 app.use(
   cors({
-    origin: [process.env.FRONTED_URL_ONE, process.env.FRONTED_URL_TWO],
+    origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
+    credentials: process.env.NODE_ENV === "production",
   })
 );
 
