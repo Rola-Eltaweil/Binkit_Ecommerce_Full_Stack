@@ -56,24 +56,15 @@ app.use("/api/order", Order);
 if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve();
   app.use(express.static(path.join(__dirname, "../client/dist")));
-  app.get("/*", (req, res) => {
+  app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
   });
 }
 
-// For serverless platforms (like Vercel) we must NOT call `app.listen`.
-// Instead export a handler that can be invoked per-request. Connect to
-// the database at module initialization so the connection is available
-// for requests.
+const PORT = process.env.PORT;
 
-// Start DB connection (don't start a listening server here)
-DataBase()
-  .then(() => console.log("✅ Database connected"))
-  .catch((err) => console.error("DB connection error:", err));
-
-// Export a handler for Vercel's serverless runtime. Vercel's `@vercel/node`
-// builder will call this exported function for incoming requests. We forward
-// the call to the express app instance.
-export default function handler(req, res) {
-  return app(req, res);
-}
+DataBase().then(() => {
+  app.listen(PORT, () => {
+    console.log(`✅ Server is running on port ${PORT}`);
+  });
+});
