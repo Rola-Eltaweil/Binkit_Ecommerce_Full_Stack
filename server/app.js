@@ -27,6 +27,11 @@ app.post(
   webhooks
 );
 
+
+app.get("/", (req, res) => {
+  res.send("Backend Blinkit is running ✅");
+});
+
 // ✅ بعدين باقي الميدل وير
 app.use(morgan("dev"));
 app.use(cookieParser());
