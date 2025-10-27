@@ -64,3 +64,6 @@ if (process.env.NODE_ENV === "production") {
 const PORT = process.env.PORT;
 
 DataBase()
+
+
+export default app
