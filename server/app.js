@@ -62,9 +62,9 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
-app.get('/',(req,res)=>{
-  return res.send('Back run')
-})
+app.get("/", (req, res) => {
+  res.send("Backend is running ✅");
+});
 
 const PORT = process.env.PORT;
 
@@ -73,3 +73,5 @@ DataBase().then(() => {
     console.log(`✅ Server is running on port ${PORT}`);
   });
 });
+
+export default app
