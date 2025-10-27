@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container { 
+    max-width:90%;
+    margin:auto;
+
+}
+body {
+  font-family: 'Inter', sans-serif;
+  @apply bg-blue-50
+
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-custom::-webkit-scrollbar{
+  width: 12px;
+  @apply bg-slate-100
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb{
+  @apply bg-blue-100  rounded-full
+}
+
+
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(20deg); }
+  40% { transform: rotate(-15deg); }
+  60% { transform: rotate(20deg); }
+  80% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+.wave {
+  display: inline-block;
+  animation: wave 1.5s infinite;
+}

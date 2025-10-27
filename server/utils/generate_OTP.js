@@ -1,0 +1,5 @@
+const Generate_OTP = ()=>{
+    return Math.floor(100000 + Math.random() * 900000);
+}
+
+export default Generate_OTP
