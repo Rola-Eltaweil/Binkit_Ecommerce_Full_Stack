@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react'
 import { Endpoints } from '../common/Endpoint';
 import Skeleton from '../components/Skeleton';
-import Productcardcategory from './Productcardcategory.JSX';
+import Productcardcategory from './Productcardcategory.jsx';
 import { FaAngleRight } from "react-icons/fa";
 import { FaAngleLeft } from "react-icons/fa6";
 
