@@ -14,7 +14,7 @@
     },
     {
       "src": "/",
-      "dest": "server/app.js"
+      "dest": "/app.js"
     }
   ]
 }
